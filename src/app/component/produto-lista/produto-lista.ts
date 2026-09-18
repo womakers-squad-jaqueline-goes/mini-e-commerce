@@ -21,9 +21,7 @@ export class ProdutoLista implements OnInit {
   ngOnInit() {
     this.produtoService.buscarProdutos().subscribe({
       next: (produtos) => {
-        console.log('PRODUTOS RECEBIDOS:', produtos);
         this.produtos = [...produtos];
-        console.log('TOTAL PRODUTOS:', this.produtos.length);
         this.cdr.detectChanges();
       },
       error: (erro) => {
