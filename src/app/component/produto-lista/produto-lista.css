@@ -1,0 +1,134 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    padding: 32px;
+    background: linear-gradient(180deg, #f8f4f1 0%, #f0eaf7 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+h2 {
+    margin: 0;
+    color: #4f435a;
+    font-size: clamp(1.8rem, 2vw, 2.6rem);
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 24px;
+}
+
+.produto-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 430px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid #e2d6f1;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(71, 53, 88, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.produto-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 30px rgba(71, 53, 88, 0.12);
+}
+
+.imagem-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 210px;
+    margin-bottom: 16px;
+    background: #faf7fb;
+    border-radius: 14px;
+}
+
+img {
+    width: 150px;
+    height: 180px;
+    object-fit: contain;
+}
+
+.produto-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+h3 {
+    margin: 0 0 10px;
+    color: #4f435a;
+    font-size: 1.05rem;
+    line-height: 1.4;
+}
+
+.categoria {
+    margin: 0 0 10px;
+    color: #7a6f82;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+}
+
+.preco {
+    margin-top: auto;
+    margin-bottom: 16px;
+    color: #2f4032;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #a9cbae 0%, #c9b6e4 100%);
+    color: #2f4032;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+button:hover {
+    filter: brightness(0.98);
+}
+
+.produto-info a {
+    display: inline-block;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #f0eaf7;
+    color: #4f435a;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.produto-info a:hover {
+    background: #e4d7f2;
+    transform: translateY(-1px);
+}
+
+.vazio {
+    grid-column: 1 / -1;
+    padding: 24px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    color: #4f435a;
+    font-weight: 600;
+}
