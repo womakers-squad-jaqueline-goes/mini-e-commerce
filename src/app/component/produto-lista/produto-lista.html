@@ -1,0 +1,27 @@
+<div class="cabecalho">
+    <h2>Catálogo de produtos</h2>
+</div>
+
+<section class="produtos-grid">
+    <ng-container *ngIf="produtos.length > 0; else carregando">
+        <article class="produto-card" *ngFor="let produto of produtos; trackBy: trackByProdutoId">
+            <div class="imagem-container">
+                <img [src]="produto.image" [alt]="produto.title" width="150">
+            </div>
+
+            <div class="produto-info">
+                <h3>{{ produto.title }}</h3>
+                <p class="categoria">{{ produto.category }}</p>
+                <p class="preco">{{ produto.price | currency:'BRL':'symbol':'1.2-2' }}</p>
+                <button type="button" (click)="adicionarAoCarrinho(produto)">Adicionar ao carrinho</button>
+                <a [routerLink]="['/produtos', produto.id]">
+                    Ver detalhes
+                </a>
+            </div>
+        </article>
+    </ng-container>
+
+    <ng-template #carregando>
+        <p class="vazio">Carregando produtos...</p>
+    </ng-template>
+</section>
