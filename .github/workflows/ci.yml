@@ -29,10 +29,29 @@ jobs:
           fi
 
           if [ "${{ github.base_ref }}" = "main" ]; then
-            if [ "${{ github.head_ref }}" != "develop" ]; then
-              echo "ERRO: apenas develop pode abrir PR para main."
+            if [[ "${{ github.head_ref }}" != "develop" ]]; then
+              echo "ERRO: apenas a branch develop pode abrir PR para main."
               exit 1
             fi
 
             echo "Fluxo válido: develop -> main"
           fi
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build do projeto Angular
+        run: npm run build
