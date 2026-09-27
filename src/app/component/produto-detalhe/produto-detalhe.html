@@ -1,0 +1,19 @@
+<div *ngIf="produto" class="produto-detalhe">
+  <h1>{{ produto.title }}</h1>
+
+  <img [src]="produto.image" [alt]="produto.title" />
+
+  <p>{{ produto.description }}</p>
+  <p>Categoria: {{ produto.category }}</p>
+  <p>Preço: R$ {{ produto.price }}</p>
+
+  <button type="button" (click)="adicionarAoCarrinho()">Adicionar ao carrinho</button>
+
+  <div *ngIf="mensagem" class="mensagem" [ngClass]="tipoMensagem" role="status" aria-live="polite">
+    {{ mensagem }}
+  </div>
+</div>
+
+<div *ngIf="mensagem && !produto" class="mensagem" [ngClass]="tipoMensagem" role="alert">
+  {{ mensagem }}
+</div>
