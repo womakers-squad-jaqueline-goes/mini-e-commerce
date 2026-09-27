@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Produto } from '../../services/produto';
+import { Carrinho } from '../../services/carrinho';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -15,6 +16,7 @@ export class ProdutoLista implements OnInit {
 
   constructor(
     private produtoService: Produto,
+    private carrinho: Carrinho,
     private cdr: ChangeDetectorRef,
   ) { }
 
@@ -30,9 +32,10 @@ export class ProdutoLista implements OnInit {
     });
   }
 
-  adicionarAoCarrinho(produto: any) {
-    console.log(`Produto adicionado ao carrinho: ${produto.title}`);
-  }
+adicionarAoCarrinho(produto: any): void {
+  this.carrinho.adicionar(produto);
+  console.log(`Produto adicionado ao carrinho: ${produto.title}`);
+}
 
   trackByProdutoId(index: number, produto: any) {
     return produto?.id ?? index;
