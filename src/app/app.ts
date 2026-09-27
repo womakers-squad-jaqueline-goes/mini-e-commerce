@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Menu } from './menu/menu';
+import { Menu } from './component/menu/menu';
 
 
 @Component({
