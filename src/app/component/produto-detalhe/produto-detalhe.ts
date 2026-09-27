@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProdutoModel } from '../../models/produto-model';
 import { Produto } from '../../services/produto';
+import { Carrinho } from '../../services/carrinho';
 
 @Component({
   imports: [CommonModule],
@@ -19,6 +20,7 @@ export class ProdutoDetalhe implements OnInit {
     private route: ActivatedRoute,
     private changeDetectorRef: ChangeDetectorRef,
     private produtoService: Produto,
+    private carrinhoService: Carrinho
   ) {}
 
   ngOnInit() {
@@ -42,6 +44,7 @@ export class ProdutoDetalhe implements OnInit {
       return;
     }
 
+    this.carrinhoService.adicionar(this.produto);
     this.exibirMensagem('Produto adicionado ao carrinho com sucesso!', 'sucesso');
   }
 
@@ -52,6 +55,6 @@ export class ProdutoDetalhe implements OnInit {
     setTimeout(() => {
       this.mensagem = '';
       this.changeDetectorRef.detectChanges();
-    }, 2000);
+    }, 500);
   }
 }
