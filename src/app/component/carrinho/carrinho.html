@@ -1,0 +1,42 @@
+<h2>Meu carrinho</h2>
+<section *ngIf="itens.length > 0; else carrinhoVazio">
+  <article *ngFor="let item of itens">
+    <img [src]="item.image" [alt]="item.title" width="100">
+
+    <div>
+      <h3>{{ item.title }}</h3>
+
+      <p>
+        {{ item.price | currency:'BRL':'symbol':'1.2-2' }}
+      </p>
+
+      <div class="quantidade">
+        <button type="button" (click)="diminuirQuantidade(item.id)">−</button>
+        <span>Quantidade: {{ item.quantidade }}</span>
+        <button type="button" (click)="aumentarQuantidade(item.id)">+</button>
+      </div>
+
+      <p>
+        <strong>Subtotal:</strong>
+        {{ (item.price * item.quantidade) | currency:'BRL':'symbol':'1.2-2' }}
+      </p>
+
+      <button type="button" (click)="remover(item.id)">
+        Remover
+      </button>
+    </div>
+  </article>
+
+  <div class="total">
+    <strong>Total:</strong>
+    <span>{{ total | currency:'BRL':'symbol':'1.2-2' }}</span>
+  </div>
+</section>
+
+<button type="button" routerLink="/checkout">
+  Ir para checkout
+</button>
+
+<ng-template #carrinhoVazio>
+  <p>Seu carrinho está vazio.</p>
+</ng-template>

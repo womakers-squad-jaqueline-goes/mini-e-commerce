@@ -1,0 +1,133 @@
+:host {
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+padding: 32px;
+box-sizing: border-box;
+background: linear-gradient(180deg, #f8f4f1 0%, #f0eaf7 100%);
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.produto-detalhe {
+width: 100%;
+max-width: 1050px;
+padding: 32px;
+background: rgba(255, 255, 255, 0.96);
+border: 1px solid #e2d6f1;
+border-radius: 20px;
+box-shadow: 0 12px 30px rgba(71, 53, 88, 0.08);
+overflow: auto;
+}
+
+h1 {
+margin: 0 0 32px;
+color: #4f435a;
+font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+line-height: 1.4;
+}
+
+img {
+float: left;
+width: 320px;
+height: 320px;
+margin-right: 32px;
+margin-bottom: 24px;
+padding: 20px;
+box-sizing: border-box;
+object-fit: contain;
+background: #faf7fb;
+border-radius: 14px;
+}
+
+.produto-detalhe p {
+margin: 0 0 16px;
+color: #7a6f82;
+font-size: 1rem;
+line-height: 1.7;
+}
+
+.produto-detalhe p:nth-of-type(1) {
+font-size: 1.05rem;
+}
+
+.produto-detalhe p:nth-of-type(2) {
+text-transform: capitalize;
+font-size: 0.9rem;
+}
+
+.produto-detalhe p:nth-of-type(3) {
+margin-top: 24px;
+margin-bottom: 24px;
+color: #2f4032;
+font-size: 1.5rem;
+font-weight: 700;
+}
+
+button {
+padding: 12px 24px;
+border: none;
+border-radius: 12px;
+background: linear-gradient(135deg, #a9cbae 0%, #c9b6e4 100%);
+color: #2f4032;
+font-family: inherit;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+transition: filter 0.2s ease;
+}
+
+button:hover {
+filter: brightness(0.98);
+}
+
+
+.mensagem {
+    clear: both;
+    margin-top: 24px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.mensagem.sucesso {
+    border: 1px solid #a9cbae;
+    background: #edf6ee;
+    color: #2f6038;
+}
+
+.mensagem.erro {
+    border: 1px solid #e8b8bd;
+    background: #fdf0f1;
+    color: #963b46;
+}
+
+@media (max-width: 700px) {
+  :host {
+    padding: 16px;
+  }
+
+  .produto-detalhe {
+    padding: 24px;
+  }
+
+  h1 {
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+  }
+
+  img {
+    float: none;
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 280px;
+    margin: 0 auto 24px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,102 @@
+<div class="checkout-container">
+
+    <div class="cabecalho">
+        <h2>Finalizar pedido</h2>
+        <p class="subtitulo">
+            Preencha seus dados para finalizar a compra.
+        </p>
+    </div>
+
+    <div class="checkout-card">
+
+        <form
+            [formGroup]="checkoutForm"
+            (ngSubmit)="finalizarPedido()"
+        >
+
+            <div class="form-group">
+
+                <label for="nome">
+                    Nome
+                </label>
+
+                <input
+                    id="nome"
+                    type="text"
+                    formControlName="nome"
+                    placeholder="Digite seu nome"
+                >
+
+                <div
+                    class="error"
+                    *ngIf="nome?.invalid && nome?.touched"
+                >
+
+                    <span *ngIf="nome?.errors?.['required']">
+                        O nome é obrigatório.
+                    </span>
+
+                    <span *ngIf="nome?.errors?.['minlength']">
+                        O nome deve ter pelo menos 3 caracteres.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="endereco">
+                    Endereço
+                </label>
+
+                <input
+                    id="endereco"
+                    type="text"
+                    formControlName="endereco"
+                    placeholder="Digite seu endereço"
+                >
+
+                <div
+                    class="error"
+                    *ngIf="endereco?.invalid && endereco?.touched"
+                >
+
+                    <span *ngIf="endereco?.errors?.['required']">
+                        O endereço é obrigatório.
+                    </span>
+
+                    <span *ngIf="endereco?.errors?.['minlength']">
+                        O endereço deve ter pelo menos 5 caracteres.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                [disabled]="checkoutForm.invalid"
+            >
+                Finalizar pedido
+            </button>
+
+        </form>
+
+
+        <div
+            class="success"
+            *ngIf="pedidoFinalizado"
+        >
+            <h3>Pedido finalizado!</h3>
+
+            <p>
+                Seu pedido foi enviado com sucesso.
+            </p>
+        </div>
+
+    </div>
+
+</div>
