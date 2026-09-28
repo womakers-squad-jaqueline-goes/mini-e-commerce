@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Carrinho as CarrinhoService } from '../../services/carrinho';
 
 @Component({
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   selector: 'app-carrinho',
   templateUrl: './carrinho.html',
   styleUrl: './carrinho.css',

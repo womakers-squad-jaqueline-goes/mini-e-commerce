@@ -1,5 +1,9 @@
 <h2>Meu carrinho</h2>
 
+<a routerLink="/" class="voltar-inicio">
+  ← Voltar para a página inicial
+</a>
+
 <section *ngIf="itens.length > 0; else carrinhoVazio">
   <article *ngFor="let item of itens">
     <img [src]="item.image" [alt]="item.title" width="100">
