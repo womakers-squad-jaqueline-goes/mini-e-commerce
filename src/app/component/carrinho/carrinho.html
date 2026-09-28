@@ -1,9 +1,4 @@
 <h2>Meu carrinho</h2>
-
-<a routerLink="/" class="voltar-inicio">
-  ← Voltar para a página inicial
-</a>
-
 <section *ngIf="itens.length > 0; else carrinhoVazio">
   <article *ngFor="let item of itens">
     <img [src]="item.image" [alt]="item.title" width="100">
@@ -37,6 +32,10 @@
     <span>{{ total | currency:'BRL':'symbol':'1.2-2' }}</span>
   </div>
 </section>
+
+<button type="button" routerLink="/checkout">
+  Ir para checkout
+</button>
 
 <ng-template #carrinhoVazio>
   <p>Seu carrinho está vazio.</p>
